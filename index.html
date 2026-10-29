@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit V - Karma Yangdon - Sherubtse ePortfolio - 30 Marks</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] } };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Verdana,Arial,sans-serif;background:#eef3ff;color:#0d1b4a;line-height:1.85}
+header{background:linear-gradient(135deg,#0d1b4a,#1e40af);color:white;padding:40px 12px;text-align:center}
+nav{position:sticky;top:0;background:white;padding:10px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.2);z-index:99}
+nav a{display:inline-block;margin:3px;background:#e0e7ff;padding:6px 10px;border-radius:15px;text-decoration:none;font-weight:bold;font-size:11px;color:#0d1b4a;border:1px solid #c7d2fe}
+.card{background:white;max-width:880px;margin:20px auto;padding:22px;border-radius:14px;box-shadow:0 5px 15px rgba(0,0,0,.1);border-left:8px solid #0d1b4a}
+.diabox{background:#fffbeb;border:3px solid #f59e0b;border-radius:10px;padding:10px;margin:12px 0}
+.formula{background:#0d1b4a;color:#7dd3fc;padding:14px;border-radius:8px;margin:12px 0;overflow-x:auto}
+.deriv{background:#fff7ed;border-left:5px solid #ff6a00;padding:12px;border-radius:8px;margin:12px 0}
+.critical{background:#f0f9ff;border-left:5px solid #0ea5e9;padding:12px;border-radius:8px;margin:12px 0}
+.sim{background:#ecfdf5;border:3px solid #10b981;border-radius:10px;padding:12px;margin:12px 0}
+.reflectbox{background:#f5f3ff;border:3px solid #6366f1;border-radius:10px;padding:16px;margin:12px 0}
+.btn{background:#0d1b4a;color:white;border:none;padding:7px 14px;border-radius:6px;cursor:pointer}
+canvas{width:100%;height:210px;border:2px solid #0d1b4a;border-radius:8px;background:white;display:block}
+pre{background:#f8fafc;padding:10px;border:1px solid #ddd;border-radius:6px;overflow-x:auto;font-size:11px}
+h2{color:#0d1b4a;border-bottom:2px solid #e0e7ff;padding-bottom:6px;margin:0 0 12px}
+footer{background:#0d1b4a;color:#cbd5e1;text-align:center;padding:20px;margin-top:20px}
+</style>
+</head>
+<body>
+<header><h1>Unit V: Photons and Matter Waves</h1><p><b>Karma Yangdon | BSc Physical Science | Sherubtse College, Kanglung, Trashigang | RUB Bhutan</b><br>ePortfolio following Criteria: Design(3) Organization(5) Content(7) Critical Thinking(6) Reflection(4) Language(2) Digital Skills(3)=30</p></header>
+<nav><a href="#51">5.1 Blackbody</a><a href="#52">5.2 Photoelectric</a><a href="#53">5.3 Compton</a><a href="#54">5.4 de Broglie</a><a href="#55">5.5 Duality</a><a href="#56">5.6 Double Slit</a><a href="#57">5.7 Heisenberg</a><a href="#reflect">Reflection</a></nav>
+
+<div class="card" id="51"><h2>5.1 Blackbody Radiation</h2>
+<p>• A blackbody is an idealized physical object that absorbs 100% of all incident electromagnetic radiation regardless of frequency or angle of incidence.</p>
+<p>• Classical physics predicted the Rayleigh-Jeans law, which stated that the energy density of radiation inside a cavity scales proportionally to the square of the frequency (\(u(\nu) \propto \nu^2\)).</p>
+<p>• This classical prediction resulted in the ultraviolet catastrophe, a catastrophic mathematical failure where the total emitted energy approached infinity as the wavelength approached zero (the ultraviolet spectrum).</p>
+<p>• Max Planck resolved this failure in 1900 by introducing the revolutionary postulate that energy exchange between the cavity walls and the radiation field is not continuous, but occurs in discrete packets called quanta.</p>
+<p>• The energy (\(E\)) of a single quantum is directly proportional to its frequency (\(\nu \)), connected by Planck's constant (\(h\)).</p>
+<div class="formula">⚙️ Working Formulas • Planck's Energy Quantization Equation: \(E=h\nu =\frac{hc}{\lambda }\) • Planck's Radiation Law: \(u(\nu ,T)=\frac{8\pi h\nu ^{3}}{c^{3}}\frac{1}{e^{\frac{h\nu }{k_{B}T}}-1}\) • Wien's Displacement Law: \(\lambda _{\max }T=b\quad (\text{where\ }b\approx 2.898\times 10^{-3}\text{\ m}\cdot \text{K})\)</div>
+<div class="diabox"><b>📈 Diagram:</b><canvas id="c51"></canvas>
+<pre>Energy Density u(λ)
+  ^
+  | /---\ [ Classical Rayleigh-Jeans Prediction (Approaches Infinity) ]
+  |/     \ . . . . . . . . . \
+  |/       \                 \    |  T2 (Hotter) peak left, area ∝ T⁴
+  |/______T1_______\___________+---> λ   0 UV Visible IR</pre></div>
+<div class="critical"><b>Critical Thinking (6 marks):</b> Why did classical fail? Equipartition gave \( \langle E\rangle=kT\) for all modes, mode count \( \propto \nu^2\) → infinite. Planck cutoff: when \(h\nu >>kT\), Boltzmann factor \(e^{-h\nu/kT}\) suppresses. Our Bhutan bukhari 800K → λmax=3622nm IR red glow, Sun 5800K→500nm green explains daylight.</div>
+<div class="sim"><b>SIMULATION - Wien:</b> T=<input type="range" id="t51" min="500" max="10000" value="5800" oninput="sim51()"> <span id="tv51">5800K</span> λmax=<span id="lv51">500nm</span></div>
+</div>
+
+<div class="card" id="52"><h2>5.2 The Photoelectric Effect</h2>
+<p>• The photoelectric effect is the physical process where electrons (photoelectrons) are ejected from the surface of a metal substrate when irradiated by incident light of high enough frequency.</p>
+<p>• Classical wave theory incorrectly predicted that the kinetic energy of liberated electrons would increase with the intensity (brightness) of the light wave and that low intensities would require a time delay for electrons to absorb enough energy to escape.</p>
+<p>• Albert Einstein explained the phenomenon in 1905 by modeling light as a localized stream of particle-like packets of energy, later named photons.</p>
+<p>• The experimental data proved that electron emission is instantaneous once the light frequency crosses a specific minimum threshold frequency (\(\nu _{0}\)), and increasing the light intensity only increases the number of ejected electrons, not their individual speeds.</p>
+<p>• The minimum energy required to liberate an electron from the metal surface boundary is defined as the work function (\(\Phi _{0}\)) of that specific metal.</p>
+<div class="formula">⚙️ Working Formulas • \(K_{\max }=h\nu -\Phi _{0}\) • \(\Phi _{0}=h\nu _{0}\) • \(eV_{s}=K_{\max }\implies V_{s}=\frac{h}{e}\nu -\frac{\Phi _{0}}{e}\)</div>
+<div class="deriv">🧮 Derivation: Determining Planck's Constant from Stopping Potential
+We begin with \(h\nu =\Phi _{0}+K_{\max }\)
+Substitute \(K_{\max}=eV_s\): \(h\nu =\Phi _{0}+eV_{s}\)
+Isolate \(V_s\): \(V_{s}=\left(\frac{h}{e}\right)\nu -\frac{\Phi _{0}}{e}\)
+This yields \(y=mx+c\), plotting \(V_s\) vs \(\nu\) slope = \(h/e\).</div>
+<div class="diabox"><b>🔬 Diagram:</b><canvas id="c52"></canvas></div>
+<div class="critical"><b>Critical Thinking:</b> Classical predicted delay minutes for dim light to accumulate energy, and Kmax ∝ intensity. Experiment shows instant <1ns and Kmax ∝ frequency. Intensity only increases number of photons → current, not energy. Proves light is quantized.</div>
+<div class="sim"><b>SIMULATION:</b> Φ<select id="met"><option value="2.28">Na 2.28eV</option><option value="2.3" selected>K 2.3eV</option><option value="4.3">Zn 4.3eV</option></select> λ<input id="lam52" type="number" value="400" style="width:60px">nm <button class="btn" onclick="sim52()">Fire</button> <span id="out52"></span></div>
+</div>
+
+<div class="card" id="53"><h2>5.3 The Compton Effect</h2>
+<p>• The Compton effect is the elastic scattering of a high-energy photon (such as an X-ray or gamma-ray) by a stationary, weakly bound target electron, resulting in an increase in the photon's wavelength.</p>
+<p>• Arthur Compton observed in 1923 that the scattered radiation contained a shifted wavelength component that depended exclusively on the geometric angle of scattering (\(\theta \)), a behavior that classical electromagnetic wave theory could not explain.</p>
+<p>• This phenomenon provides direct, definitive proof of the particle nature of light, demonstrating that photons carry linear momentum (\(p = h/\lambda\)) and obey relativistic conservation laws during microscopic collisions.</p>
+<div class="formula">⚙️ Working Formulas • \(\Delta \lambda =\lambda ^{\prime }-\lambda =\lambda _{c}(1-\cos \theta )\) • \(\lambda _{c}=\frac{h}{m_{e}c}\approx 2.426\times 10^{-12}\text{\ m}\)</div>
+<div class="deriv">🧮 Derivation: Conservation: \(E_{initial}=h\nu+m_ec^2\), \(E_{final}=h\nu'+\sqrt{p_e^2c^2+m_e^2c^4}\) , momentum vector \(\vec{p}_{photon}=\vec{p}'_{photon}+\vec{p}_e\) → \(p_e^2=p^2+p'^2-2pp'\cos\theta\) with \(p=h\nu/c\) → \((h\nu-h\nu'+m_ec^2)^2=p_e^2c^2+m_e^2c^4\) → simplifies to \(m_ec^2(h\nu-h\nu')=h^2\nu\nu'(1-\cos\theta)\) → \(\lambda'-\lambda=\frac{h}{m_ec}(1-\cos\theta)\)</div>
+<div class="diabox"><b>📐 Diagram:</b><canvas id="c53"></canvas></div>
+<div class="critical"><b>Critical Thinking:</b> Why X-ray? \(\lambda_c=0.002426nm\) tiny vs visible 500nm → shift 0.0005% invisible. For X-ray 0.07nm shift 3.5% measurable. Proves photon momentum.</div>
+<div class="sim"><b>SIMULATION:</b> θ=<input type="range" id="th53" min="0" max="180" value="90" oninput="sim53()"> <span id="thv53">90°</span> Δλ=<span id="dl53">0.002426nm</span></div>
+</div>
+
+<div class="card" id="54"><h2>5.4 De Broglie's Matter Wave</h2>
+<p>• Louis de Broglie postulated in 1924 that if light waves exhibit particle-like properties, then material particles (like electrons and protons) must also exhibit wave-like characteristics.</p>
+<p>• The periodic oscillation associated with a moving material body is defined as a matter wave or a de Broglie wave.</p>
+<p>• The wavelength (\(\lambda \)) of a matter wave is inversely proportional to the linear momentum (\(p\)) of the moving mass.</p>
+<div class="formula">⚙️ Working Formulas • \(\lambda =\frac{h}{p}=\frac{h}{mv}\) • \(\lambda =\frac{h}{\sqrt{2mK}}\) • \(\lambda =\frac{h}{\sqrt{2m_{e}eV}}\approx \frac{1.227}{\sqrt{V}}\text{\ nm}\)</div>
+<div class="diabox"><b>DIAGRAM:</b><canvas id="c54"></canvas></div>
+<div class="critical"><b>Critical Thinking:</b> If wave→particle then particle→wave symmetry. Electron 100V λ=0.122nm ≈ atom spacing → diffracts. Davisson-Germer 1927 proved. Bohr orbit 2πr=nλ → L=nħ explains quantization. Electron microscope 100keV λ=0.0037nm vs optical 500nm 135000× better.</div>
+<div class="sim"><b>SIMULATION:</b> V=<input type="range" id="v54" min="10" max="5000" value="100" oninput="sim54()"> <span id="vv54">100V</span> λ=<span id="lv54">0.1227nm</span></div>
+</div>
+
+<div class="card" id="55"><h2>5.5 Wave-Particle Duality</h2>
+<p>• Wave-particle duality is the fundamental principle of quantum mechanics stating that every subatomic entity exhibits both continuous wave-like and localized particle-like properties depending on the experimental apparatus used to observe it.</p>
+<p>• Light manifests its wave nature during propagation behaviors like interference, diffraction, and polarization, but reveals its particle nature during localized energy absorption and emission mechanisms like the photoelectric effect and Compton scattering.</p>
+<p>• Matter exhibits particle properties through mass localization and collisions, but shows wave behavior when passing through tight crystalline lattices, producing clear diffraction patterns.</p>
+<p>• The unified wave-particle link is bridged mathematically by the de Broglie relations, which directly connect structural wave properties (\(\lambda, \nu\)) to physical particle properties (\(p, E\)).</p>
+<div class="formula">⚙️ Working Formulas • \(p=\frac{h}{\lambda }=\hbar k\) • \(E=h\nu =\hbar \omega \)</div>
+<div class="critical"><b>Critical Thinking:</b> Bohr Complementarity: both necessary but mutually exclusive same experiment. Human 70kg 1m/s λ=h/p=9.5e-36m << nuclear impossible. Radio 1m photon E=1.24μeV huge N → classical wave emerges as average. Duality scale set by h.</div>
+</div>
+
+<div class="card" id="56"><h2>5.6 The Electron Double-Slit Experiment</h2>
+<p>• The electron double-slit experiment provides definitive, direct visual confirmation that material particles like electrons display wave-like interference.</p>
+<p>• When a stream of electrons is accelerated through two closely spaced parallel slits, they do not register as two simple columns behind the openings, but instead generate a clear alternating bright and dark fringe interference pattern on a detector screen.</p>
+<p>• Even when electrons are fired through the apparatus one at a time, the individual hits build up the exact same wave interference pattern over time, proving that each electron passes through both slits simultaneously as a probability wave.</p>
+<p>• Attempting to place a measurement detector at the slits to determine which specific opening the electron passes through immediately collapses the quantum state, destroying the wave behavior and leaving a standard, classical two-column distribution.</p>
+<div class="formula">⚙️ Working Formulas • \(\beta =\frac{\lambda D}{d}\) • \(d\sin \theta =n\lambda \quad (n=0,1,2,\dots )\)</div>
+<div class="diabox"><b>DIAGRAM & SIMULATION:</b><canvas id="c56"></canvas><br><button class="btn" onclick="fire56()">Fire Single Electron</button> <button class="btn" onclick="clear56()">Clear</button> Count=<span id="cnt56">0</span><br>Blue=high probability maxima, orange=minima. Even one-by-one builds fringes → self-interference.</div>
+<div class="critical"><b>Critical Thinking:</b> Tonomura 1989 single electrons build fringes → each electron interferes with itself: \(P=|\psi_1+\psi_2|^2\). Which-path detector destroys interference → measurement collapses wavefunction → complementarity. Feynman: heart of quantum mystery.</div>
+</div>
+
+<div class="card" id="57"><h2>5.7 The Heisenberg Uncertainty Principle</h2>
+<p>• The Heisenberg uncertainty principle states that it is physically impossible to simultaneously measure both the exact position (\(x\)) and the exact linear momentum (\(p\)) of a quantum particle with absolute precision.</p>
+<p>• This uncertainty is not caused by technical limitations in our measurement equipment, but is an intrinsic mathematical property of all conjugate variable pairs in wave-particle quantum systems.</p>
+<p>• Pinning down a particle's exact location requires a highly localized wave packet with a wide spread of component wavelengths, which directly throws off our ability to measure its momentum (\(p = h/\lambda\)).</p>
+<div class="formula">⚙️ Working Formulas • \(\Delta x\cdot \Delta p_{x}\ge \frac{\hbar }{2}\) • \(\Delta E\cdot \Delta t\ge \frac{\hbar }{2}\quad \left(\text{where\ }\hbar =\frac{h}{2\pi }\right)\)</div>
+<div class="deriv">🧮 Derivation: Single-Slit Diffraction Consequence
+Let slit width \(\Delta y=d\), diffraction angle \(\sin\theta\approx\lambda/d\), vertical momentum spread \(\Delta p_y\approx p\sin\theta\approx p\lambda/d\)
+→ \(\Delta y\cdot\Delta p_y\approx d\cdot p\lambda/d = p\lambda\)
+Substitute de Broglie \(\lambda=h/p\) → \(\Delta y\cdot\Delta p_y\approx h\) → agrees with \(\ge\hbar/2\) limit.</div>
+<div class="diabox"><b>📐 Diagram:</b><canvas id="c57"></canvas></div>
+<div class="critical"><b>Critical Thinking:</b> Consequences: Zero-point energy \(E_{min}=\hbar^2/8mL^2\neq0\), e- not in nucleus Δx=1e-14m → Δp=5.28e-21 → E≈pc≈9.9MeV > beta decay few MeV → electrons cannot reside in nucleus. Also explains why electron does not collapse into proton: shrinking r drives kinetic to infinity → stable a0, E=-13.6eV.</div>
+<div class="sim"><b>SIMULATION:</b> Δy=<input type="range" id="dx57" min="0.1" max="2" step="0.1" value="0.5" oninput="sim57()"> <span id="dxv57">0.5nm</span> → Δv≥<span id="dv57">115 km/s</span></div>
+</div>
+
+<div class="card" id="reflect"><h2>Reflection - Personal Learning Journey (4 Marks)</h2>
+<div class="reflectbox">
+<p><b>🧠 Learning Experiences:</b> Unit V was gateway into quantum. Transition from classical determinism to quantum probability demanding but rewarding. Mastered blackbody and Planck solving UV catastrophe, photoelectric and Compton proving photons, de Broglie and double-slit proving matter waves.</p>
+<p><b>🔍 Critical Thinking:</b> Analyzed why classical failed: intensity vs frequency, delay vs instant. Einstein \(h\nu=\Phi+K_{max}\) single paradigm shift solved anomalies. Heisenberg \(\Delta x\cdot\Delta p_x\ge\hbar/2\) not instrument limit but intrinsic nature. Proving electrons cannot exist inside nucleus was eye-opening deductive logic.</p>
+<p><b>⚠️ Challenges:</b> Hardest was Complementarity - electron as particle upon detection but spread wave during transit. Overcame via Tonomura single-electron double-slit simulation watching fringe build fringe-by-fringe. Biggest lesson: abandon comfortable biases, let math and data guide even if defies everyday experience. Bhutan Middle Path analogy: dependent origination རྟེན་འབྲེལ།.</p>
+<p><b>Growth & Future:</b> From memorizing to deriving Planck from mode density, Compton from conservation, Heisenberg from Fourier. Fixed technical bug of raw \(\Delta x\) code by adding MathJax config \(window.MathJax\). Future add Sherubtse lab LED data to measure h, Dzongkha audio.</p>
+</div>
+</div>
+
+<footer>© 2026 Karma Yangdon | BSc Physical Science | Sherubtse College | RUB Bhutan | Unit V ePortfolio - Design 3 Organization 5 Content 7 Critical Thinking 6 Reflection 4 Language 2 Digital Skills 3 = 30</footer>
+<script>
+function sim51(){let T=parseInt(document.getElementById('t51').value);document.getElementById('tv51').innerText=T+'K';document.getElementById('lv51').innerText=(2898000/T).toFixed(0)+'nm';let cv=document.getElementById('c51'),ctx=cv.getContext('2d');cv.width=600;cv.height=210;ctx.clearRect(0,0,600,210);ctx.strokeRect(40,10,500,170);[3000,5800,8000].forEach((Tt,i)=>{ctx.beginPath();ctx.strokeStyle=['blue','red','orange'][i];for(let x=0;x<500;x++){let lam=100+x*5;let v=Math.pow(Tt/5800,5)*120/(Math.pow(lam/500,5)*(Math.exp(14387/(lam*(Tt/5800*500)))-0.9));let y=180-v;if(x==0)ctx.moveTo(40+x,y);else ctx.lineTo(40+x,Math.max(10,Math.min(180,y)));}ctx.stroke();});}
+function sim52(){let phi=parseFloat(document.getElementById('met').value),lam=parseFloat(document.getElementById('lam52').value),E=1240/lam,K=E-phi;let cv=document.getElementById('c52'),ctx=cv.getContext('2d');cv.width=600;cv.height=210;ctx.clearRect(0,0,600,210);ctx.fillStyle='#e8eeff';ctx.fillRect(200,20,180,150);ctx.fillStyle='#0d1b4a';ctx.fillText('Metal Φ='+phi+'eV',210,15);ctx.fillStyle='#ff6a00';ctx.beginPath();ctx.arc(50,110,10,0,6.28);ctx.fill();ctx.fillText('hν='+E.toFixed(2)+'eV',5,20);ctx.strokeStyle='#ff6a00';ctx.beginPath();ctx.moveTo(60,110);ctx.lineTo(190,110);ctx.stroke();if(K>0){ctx.fillStyle='green';ctx.beginPath();ctx.arc(380,70,6,0,6.28);ctx.fill();ctx.fillText('e- K='+K.toFixed(2)+'eV YES',250,200);}else{ctx.fillStyle='red';ctx.fillText('NO need λ<'+(1240/phi).toFixed(0)+'nm',250,200);}document.getElementById('out52').innerText=K>0?'YES V0='+K.toFixed(2)+'V':'NO';}
+function sim53(){let th=parseInt(document.getElementById('th53').value);document.getElementById('thv53').innerText=th+'°';let dl=0.002426*(1-Math.cos(th*Math.PI/180));document.getElementById('dl53').innerText=dl.toFixed(6)+'nm';let cv=document.getElementById('c53'),ctx=cv.getContext('2d');cv.width=600;cv.height=210;ctx.clearRect(0,0,600,210);ctx.strokeStyle='#ff6a00';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(20,110);ctx.lineTo(200,110);ctx.stroke();ctx.strokeStyle='#0d1b4a';ctx.beginPath();ctx.moveTo(200,110);ctx.lineTo(200+100*Math.cos(th*Math.PI/180),110-100*Math.sin(th*Math.PI/180));ctx.stroke();ctx.fillText("λ' Δλ="+dl.toFixed(4),300,50);ctx.strokeStyle='gray';ctx.beginPath();ctx.moveTo(200,110);ctx.lineTo(320,160);ctx.stroke();ctx.fillText('recoil e-',330,170);}
+function sim54(){let V=parseInt(document.getElementById('v54').value);document.getElementById('vv54').innerText=V+'V';let lam=1.227/Math.sqrt(V);document.getElementById('lv54').innerText=lam.toFixed(4)+'nm';let cv=document.getElementById('c54'),ctx=cv.getContext('2d');cv.width=600;cv.height=210;ctx.clearRect(0,0,600,210);ctx.strokeRect(40,20,500,160);for(let i=0;i<3;i++){ctx.beginPath();ctx.strokeStyle='orange';for(let x=0;x<500;x++){let y=50+i*40+12*Math.sin(x*0.08*(1/lam)*0.2);if(x==0)ctx.moveTo(40+x,y);else ctx.lineTo(40+x,y);}ctx.stroke();}}
+let cnt56=0;function clear56(){cnt56=0;document.getElementById('cnt56').innerText='0';let cv=document.getElementById('c56'),ctx=cv.getContext('2d');cv.width=600;cv.height=210;ctx.clearRect(0,0,600,210);}
+function fire56(){let cv=document.getElementById('c56'),ctx=cv.getContext('2d');if(cnt56==0)clear56();cnt56++;document.getElementById('cnt56').innerText=cnt56;let y=20+Math.random()*180,prob=Math.pow(Math.cos((y-110)*0.06),2);if(Math.random()<prob){ctx.fillStyle='#0d1b4a';ctx.beginPath();ctx.arc(400+Math.random()*150,y,2.5,0,6.28);ctx.fill();}else{ctx.fillStyle='#ff6a00';ctx.fillRect(400+Math.random()*150,y,2,2);}}
+function sim57(){let dx=parseFloat(document.getElementById('dx57').value);document.getElementById('dxv57').innerText=dx+'nm';let dp=1.054e-34/(2*dx*1e-9),dv=dp/9.11e-31/1000;document.getElementById('dv57').innerText=dv.toFixed(0)+' km/s';let cv=document.getElementById('c57'),ctx=cv.getContext('2d');cv.width=600;cv.height=210;ctx.clearRect(0,0,600,210);ctx.fillStyle='#e8eeff';ctx.fillRect(200-dx*50,70,dx*100,20);ctx.fillText('Δy='+dx+'nm confinement → Δp large',120,50);}
+window.onload=function(){sim51();sim52();sim53();sim54();clear56();sim57();}
+</script>
+</body>
+</html>
