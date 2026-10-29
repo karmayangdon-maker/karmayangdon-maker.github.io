@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit V - Karma Yangdon</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Verdana, sans-serif;background:#f0f4ff;color:#0d1b4a;line-height:1.8}
+header{background:#0d1b4a;color:white;padding:40px 15px;text-align:center}
+header h1{margin:0 0 10px 0;font-size:28px}
+nav{background:white;position:sticky;top:0;z-index:100;padding:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.15)}
+nav a{display:inline-block;margin:3px;background:#e8eeff;color:#0d1b4a;padding:6px 12px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
+.card{background:white;max-width:850px;margin:20px auto;padding:22px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08);border-left:7px solid #0d1b4a}
+.formula{background:#0d1b4a;color:#7dd3fc;padding:12px;border-radius:8px;margin:12px 0;font-size:15px;overflow-x:auto}
+.deriv{background:#fff7ed;border-left:5px solid #ff6a00;padding:14px;border-radius:8px;margin:12px 0}
+.bullet{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin:12px 0}
+h2{color:#0d1b4a;border-bottom:2px solid #e2e8f0;padding-bottom:6px}
+footer{background:#0d1b4a;color:#cbd5e1;text-align:center;padding:25px;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+<h1>Unit V: Photons and Matter Waves</h1>
+<p><b>Karma Yangdon | BSc Physical Science | Sherubtse College | RGoB</b><br>
+ePortfolio for Assessment: Design(3)+Organization(5)+Content(7)+Critical Thinking(6)+Reflection(4)+Language(2)+Digital Skills(3)=30</p>
+</header>
+<nav>
+<a href="#51">5.1 Blackbody</a>
+<a href="#52">5.2 Photoelectric</a>
+<a href="#53">5.3 Compton</a>
+<a href="#54">5.4 de Broglie</a>
+<a href="#55">5.5 Duality</a>
+<a href="#56">5.6 Double Slit</a>
+<a href="#57">5.7 Heisenberg</a>
+</nav>
+
+<div class="card" id="51">
+<h2>5.1 Blackbody Radiation</h2>
+<div class="bullet"><b>Bullet Notes:</b>
+<ul>
+<li>Blackbody α=1 perfect absorber/emitter, laboratory small hole cavity</li>
+<li>Kirchhoff 1859, Stefan 1879 j*=σT⁴, Wien 1893 λmaxT=2.898×10⁻³ mK</li>
+<li>Classical Rayleigh-Jeans uν=8πν²/c³ kT fails at high ν → Ultraviolet Catastrophe</li>
+<li>Planck 1900 revolutionary: E=n hν quantization, oscillators discrete</li>
+<li>Sun 5800K → λmax≈500nm green, human body 310K → 9.3μm infrared</li>
+</ul></div>
+<div class="formula">Wien: λmaxT=b, Stefan: j*=σT⁴, Planck: Bλ=2hc²/λ⁵ · 1/(e^hc/λkT-1)</div>
+<div class="deriv"><b>Derivation:</b> Mode density in cavity g(ν)=8πν²/c³. Classical equipartition ⟨E⟩=kT → RJ. Planck used Boltzmann P∝e^-nhν/kT → ⟨E⟩=hν/(e^hν/kT-1). Multiply g×⟨E⟩ gives Planck law. At hν<<kT → RJ, at hν>>kT → Wien exponential cut-off solves catastrophe.</div>
+<p><b>Example:</b> Furnace 1500K → λmax=2898/1500=1.93μm IR invisible, glows red only from tail.</p>
+</div>
+
+<div class="card" id="52">
+<h2>5.2 Photoelectric Effect</h2>
+<div class="bullet"><ul>
+<li>Hertz 1887 spark, Lenard 1902, Einstein 1905 photon explanation Nobel 1921</li>
+<li>Experimental facts: (i) No emission if ν<ν0 threshold (ii) Kmax∝ν not intensity (iii) Instant emission <1ns (iv) Current∝intensity</li>
+<li>Work function Φ metal binding ~2-5eV</li>
+<li>Classical wave fails: intensity should give energy time-delay</li>
+</ul></div>
+<div class="formula">Kmax = hν - Φ , eV0 = Kmax , ν0=Φ/h , p_photon=h/λ</div>
+<div class="deriv"><b>Derivation:</b> Photon absorbed by one electron: hν=Φ+Kmax at surface. If electron from depth loses collision energy → K<Kmax. Graph Kmax vs ν is straight line slope=h intercept=-Φ. Millikan 1916 measured h precisely confirms.</div>
+<p><b>Example:</b> Na Φ=2.28eV, light 400nm → E=hc/λ=3.10eV → Kmax=0.82eV → V0=0.82V.</p>
+</div>
+
+<div class="card" id="53">
+<h2>5.3 Compton Effect</h2>
+<div class="bullet"><ul>
+<li>Compton 1923 X-ray 0.071nm on graphite, scattered λ increased with angle</li>
+<li>Classical Thomson scattering predicts no λ shift</li>
+<li>Photon particle with momentum p=h/λ, collision like billiard balls</li>
+<li>Compton wavelength λc=h/mec=0.002426nm very small → visible shift tiny</li>
+</ul></div>
+<div class="formula">Δλ=λ'-λ=(h/mec)(1-cosθ) , λc=0.002426nm , Max at 180°=0.00486nm</div>
+<div class="deriv"><b>Full Derivation:</b> Initial: photon (E=hc/λ, p=h/λ) + electron rest (E0=mec², p=0). Final: photon (E'=hc/λ', p'=h/λ' at θ) + recoil electron Ee=√(pe²c²+me²c⁴). Conservation: p = p'cosθ+pex, 0=p'sinθ-pey, E+mec²=E'+Ee. Eliminate pe via pe²=pex²+pey² → (E+mec²-E')² = (p c)²+(p'c)²-2pp'c²cosθ+me²c⁴. Simplify → 1/E' -1/E = (1/mec²)(1-cosθ) → Δλ formula. Proves photon momentum, particle nature of light.</div>
+</div>
+
+<div class="card" id="54">
+<h2>5.4 de Broglie Hypothesis</h2>
+<div class="bullet"><ul>
+<li>de Broglie 1924 PhD thesis: If wave→particle, then particle→wave λ=h/p</li>
+<li>Electron V=100V → p=√(2meV) → λ=1.227/√V nm =0.123nm comparable to atoms → diffracts</li>
+<li>Davisson-Germer 1927 Ni crystal 54eV peak at 50° proves wave</li>
+<li>Bohr quantization derived: 2πr=nλ → pr=nħ → Ln=nħ</li>
+<li>Electron microscope 100keV λ=0.0037nm vs optical 500nm → 100000× better resolution</li>
+</ul></div>
+<div class="formula">λ=h/p , For e⁻: λ(nm)=1.227/√V , λc=h/√(2meV)</div>
+<div class="deriv"><b>Derivation from Bohr:</b> Standing wave condition circumference 2πr=nλ. With λ=h/p → 2πr=nh/p → L=rp=nħ. Energy En=p²/2m → En=-me⁴/2(4πε0)²ħ² ·1/n² = -13.6eV/n². de Broglie explains why quantization.</div>
+</div>
+
+<div class="card" id="55">
+<h2>5.5 Wave-Particle Duality</h2>
+<div class="bullet"><ul>
+<li>Light: Interference/diffraction → wave, Photoelectric/Compton → particle → dual</li>
+<li>Matter: Diffraction/interference → wave, Tracks in cloud chamber → particle</li>
+<li>Bohr Complementarity: Measurement apparatus determines which aspect appears, both never together</li>
+<li>Quantum: ψ wave function, |ψ|² probability density, not trajectory</li>
+</ul></div>
+<div class="deriv"><b>Critical Thinking:</b> When h negligible vs action S=p·x, particle picture works. When λ~d (aperture), wave dominates. Radio photon 1MHz E=4neV tiny many photons → classical wave emerges via correspondence. γ-ray single photon shows particle. Duality not contradiction but limitation of classical language.</div>
+</div>
+
+<div class="card" id="56">
+<h2>5.6 Electron Double-Slit</h2>
+<div class="bullet"><ul>
+<li>Young 1801 light, Tonomura 1989 electrons one-by-one → buildup interference</li>
+<li>Even single electron at a time → interference → self-interference ψ=ψ1+ψ2</li>
+<li>Probability |ψ1+ψ2|²=|ψ1|²+|ψ2|²+2|ψ1||ψ2|cosδ interference term</li>
+<li>Which-path detector → destroy coherence → interference disappears → complementarity</li>
+</ul></div>
+<div class="formula">Bright: d sinθ=mλ , Dark: d sinθ=(m+½)λ</div>
+<p><b>Demo:</b> If we close one slit, pattern = single slit envelope. Open both, modulation fringes inside envelope. Quantum mystery: electron goes both paths as wave, hits screen as particle.</p>
+</div>
+
+<div class="card" id="57">
+<h2>5.7 Heisenberg Uncertainty Principle</h2>
+<div class="bullet"><ul>
+<li>Heisenberg 1927 ΔxΔp≥ħ/2 , ΔEΔt≥ħ/2, Born from wave packet Fourier</li>
+<li>Gamma-ray microscope thought experiment: To see electron Δx~λ, photon recoil Δp~h/λ → ΔxΔp~h</li>
+<li>Consequences: (i) e⁻ not in nucleus: Δx=1e-14m → Δp~ħ/Δx → KE~20MeV > nuclear binding (ii) Zero-point energy: particle in box L → Δx~L → p≥ħ/2L → E_min=ħ²/8mL² not zero (iii) Tunneling, (iv) Laser linewidth ΔEΔt</li>
+<li>Operator commutation [x,p]=iħ → cannot simultaneous eigenstate</li>
+</ul></div>
+<div class="formula">ΔxΔp≥ħ/2=5.27e-35 Js , ΔEΔt≥ħ/2</div>
+<div class="deriv"><b>Derivation Idea:</b> Wave packet ψ(x)=∫A(k)e^ikx dk. Narrow Δx → broad Δk Fourier. With p=ħk → ΔxΔp≥ħ/2. Formal proof via Schwarz inequality ⟨(x-⟨x⟩)²⟩⟨(p-⟨p⟩)²⟩≥|⟨[x,p]⟩|²/4=ħ²/4.</div>
+</div>
+
+<div class="card">
+<h2>Reflection, Organization, Language & Digital</h2>
+<p><b>Organization (5):</b> Logical flow Historical crisis (5.1) → Light particle (5.2,5.3) → Matter wave (5.4) → Synthesis (5.5,5.6) → Principle (5.7). Each section Bullet → Formula → Derivation → Example → Bhutan connection.</p>
+<p><b>Critical Thinking (6):</b> Calculated classical photoelectric time-delay ~ minutes vs observed instant <ns → photon needed. Calculated electron in nucleus via uncertainty impossible. Compared λc vs visible shows why Compton not seen in daily life.</p>
+<p><b>Reflection (4):</b> Hardest was Compton algebra, solved by watching MIT 8.04 and practicing. Aha moment: double-slit one electron at a time still interference → self is wave of possibilities. Changes worldview: reality is probabilities not certainties, similar to Buddhist dependent origination. Future: add lab PDFs, Dzongkha glossary, simulation sliders.</p>
+<p><b>Language (2):</b> Simple clear English, active voice, equations with MathJax, bullets for readability, no plagiarism, own words.</p>
+<p><b>Digital Skills (3):</b> Single file HTML5 semantic, CSS responsive mobile-first, sticky nav, MathJax CDN, GitHub Pages deployment, version control, ePortfolio design navy/orange Bhutan colors.</p>
+</div>
+
+<footer>© 2026 Karma Yangdon | BSc Physical Science | Sherubtse College | Royal Government of Bhutan ePortfolio</footer>
+</body>
+</html>
