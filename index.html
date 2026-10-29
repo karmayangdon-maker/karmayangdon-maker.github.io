@@ -1,146 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unit V - Photons & Matter Waves | Karma Yangdon ePortfolio</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit V - Karma Yangdon</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
-:root{--navy:#0d1b4a;--orange:#ff6a00;--bg:#f5f7ff}
-body{margin:0;font-family:Verdana,Arial,sans-serif;background:var(--bg);line-height:1.8;color:#111}
-header{background:linear-gradient(120deg,#0d1b4a,#203a9e);color:white;padding:45px 15px;text-align:center}
-nav{position:sticky;top:0;z-index:10;background:white;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:10px;box-shadow:0 3px 12px rgba(0,0,0,.1)}
-nav a{text-decoration:none;color:#0d1b4a;font-weight:700;background:#e8eeff;padding:6px 12px;border-radius:20px;font-size:13px}
-.card{background:white;margin:22px auto;max-width:1050px;border-radius:16px;padding:26px;box-shadow:0 6px 18px rgba(0,0,0,.07);border-left:7px solid var(--navy)}
-.card.o{border-left-color:var(--orange)}
-h2{color:var(--navy);border-bottom:2px solid #e5e7eb;padding-bottom:6px}
-.bullet{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0}
-.formula{background:#0d1b4a;color:#7dd3fc;padding:12px 16px;border-radius:10px;margin:10px 0;font-size:15px}
-.deriv{background:#fff7ed;border-left:4px solid var(--orange);padding:14px;border-radius:8px;margin:12px 0}
-.diag{background:white;border:2px dashed #94a3b8;border-radius:12px;padding:12px;text-align:center;margin:12px 0}
-.sim{background:linear-gradient(#fff,#e0e7ff);border:2px solid #a5b4fc;border-radius:12px;padding:14px;margin:12px 0}
-canvas{background:#020617;border-radius:8px;display:block;margin:8px auto;max-width:100%}
-.btn{background:var(--navy);color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:700}
-.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px} @media(max-width:800px){.grid{grid-template-columns:1fr}}
-.tag{background:#dbeafe;padding:3px 10px;border-radius:20px;font-size:11px}
-footer{background:#0d1b4a;color:white;text-align:center;padding:25px}
-</style>
-</head>
-<body>
-<header>
-<h1>Unit V: Photons and Matter Waves</h1>
-<p><b>Karma Yangdon | BSc Physical Science | Sherubtse College | RGoB</b></p>
-<p>ePortfolio for Assessment Criteria: Design (3) + Organization (5) + Content (7) + Critical Thinking (6) + Reflection (4) + Language (2) + Digital Skills (3) = 30</p>
-</header>
-<nav>
-<a href="#51">5.1 Blackbody</a><a href="#52">5.2 Photoelectric</a><a href="#53">5.3 Compton</a><a href="#54">5.4 de Broglie</a><a href="#55">5.5 Duality</a><a href="#56">5.6 Double Slit</a><a href="#57">5.7 Heisenberg</a><a href="#quiz">Quiz</a><a href="#reflect">Reflection</a>
-</nav>
+body{margin:0;font-family:Verdana;background:#f5f7ff;line-height:1.7}
+header{background:#0d1b4a;color:white;padding:40px 15px;text-align:center}
+nav{position:sticky;top:0;background:white;padding:10px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+nav a{margin:4px;background:#e8eeff;color:#0d1b4a;padding:5px 10px;border-radius:15px;text-decoration:none;font-weight:bold;font-size:12px}
+.card{background:white;max-width:900px;margin:18px auto;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.08);border-left:6px solid #0d1b4a}
+.formula{background:#0d1b4a;color:#7dd3fc;padding:10px;border-radius:8px;margin:10px 0}
+.deriv{background:#fff7ed;border-left:4px solid #ff6a00;padding:12px;border-radius:6px;margin:10px 0}
+.bullet{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin:10px 0}
+.btn{background:#0d1b4a;color:white;border:none;padding:7px 12px;border-radius:6px}
+</style></head><body>
+<header><h1>Unit V: Photons and Matter Waves</h1><p><b>Karma Yangdon | BSc Physical Science | Sherubtse College | RGoB</b><br>ePortfolio Criteria: Design(3)+Organization(5)+Content(7)+Critical Thinking(6)+Reflection(4)+Language(2)+Digital Skills(3)=30</p></header>
+<nav><a href="#51">5.1 Blackbody</a><a href="#52">5.2 Photoelectric</a><a href="#53">5.3 Compton</a><a href="#54">5.4 de Broglie</a><a href="#55">5.5 Duality</a><a href="#56">5.6 Double Slit</a><a href="#57">5.7 Heisenberg</a></nav>
 
-<!-- 5.1 -->
-<div class="card" id="51">
-<h2>5.1 Blackbody Radiation</h2>
-<div class="grid">
-<div>
-<div class="bullet">
-<b>A. Class Notes (Bullet Form):</b>
-<ul>
-<li>Blackbody: Perfect absorber and emitter, absorptivity α=1</li>
-<li>Classical equipartition gave Rayleigh-Jeans: \(u_\nu d\nu = \frac{8\pi\nu^2}{c^3}kT d\nu\)</li>
-<li>Failed at high ν → Ultraviolet Catastrophe - energy → infinite</li>
-<li>Planck's revolutionary idea (1900): Energy of oscillators quantized \(E_n=n h\nu\), \(h=6.626e-34 Js\)</li>
-<li>Planck's law fits entire spectrum accurately</li>
-<li>Two important laws derived from Planck:
-  <ul><li>Wien's Displacement: Hotter → λmax blue shift</li><li>Stefan-Boltzmann: Total power ∝ T⁴, explains stars luminosity</li></ul>
-</li>
-</ul>
-<b>B. Homework Points:</b>
-<ul>
-<li>Sun T~5800K → λmax~500nm green, but appears white due to broad curve</li>
-<li>Human body T~310K → λmax~9.3 μm infrared, why thermal camera sees us</li>
-</ul>
-</div>
-<div class="formula">Working Formulas:<br>Planck: \(B_\lambda=\frac{2hc^2}{\lambda^5}\frac{1}{e^{hc/\lambda kT}-1}\)<br>Wien: \(\lambda_{max}T=2.898×10^{-3} mK\)<br>Stefan: \(j^*=σT^4, σ=5.67×10^{-8}\)</div>
-<div class="deriv"><b>Full Derivation - Planck Law (Steps):</b><br>
-Step 1: Cavity modes density: No of modes per volume per freq \(g(ν)dν=8πν²/c³ dν\)<br>
-Step 2: Classical avg energy = kT → fails<br>
-Step 3: Quantized energy: Boltzmann factor \(P_n ∝ e^{-nhν/kT}\)<br>
-Step 4: Average energy \(\langle E\rangle = \frac{\sum n hν e^{-nhν/kT}}{\sum e^{-nhν/kT}} = \frac{hν}{e^{hν/kT}-1}\)<br>
-Step 5: Multiply g(ν) * ⟨E⟩ → Planck law. At low ν, \(e^{hν/kT}≈1+hν/kT\) gives Rayleigh-Jeans. At high ν gives Wien exponential cut-off.
-</div>
-</div>
-<div>
-<div class="diag">
-<b>Diagram 1: Blackbody Spectrum</b><br>
-<svg viewBox="0 0 340 180" width="100%"><rect x="20" y="10" width="300" height="140" fill="none" stroke="#999"/><path d="M25,130 C70,15 130,30 180,70 C220,100 280,120 315,125" fill="none" stroke="#0d1b4a" stroke-width="3"/><path d="M25,130 C80,60 140,70 185,100 C230,125 290,135 315,135" fill="none" stroke="#ff6a00" stroke-width="2" stroke-dasharray="6,4"/><text x="30" y="165" font-size="11">Wavelength λ →</text><text x="60" y="20" font-size="10">5800K (Sun)</text><text x="90" y="55" font-size="10" fill="#ff6a00">3000K (Bulb)</text></svg>
-<p>Observation: As T increases, peak shifts left and area (total power) increases hugely</p>
-</div>
-<div class="sim"><b>Simulation: Interactive Planck Curve</b><br>
-T = <span id="tV">5800</span>K <input type="range" id="tR" min="1000" max="10000" value="5800" style="width:100%">
-<canvas id="bb" width="380" height="200"></canvas>
-<p id="wienL" class="formula"></p>
-</div>
-<div class="bullet"><b>Solved Example:</b> Find λmax for furnace 1500K. <br>Solution: λmax=2898μmK/T = 2898/1500=1.93 μm IR. Hence furnace glows red then white.</div>
-</div>
-</div>
-</div>
+<div class="card" id="51"><h2>5.1 Blackbody Radiation</h2>
+<div class="bullet"><b>Bullet Notes:</b><ul>
+<li>Blackbody α=1 perfect absorber/emitter</li>
+<li>Classical Rayleigh-Jeans: \(u_ν=8πν²/c³ kT\) fails at high ν → UV catastrophe</li>
+<li>Planck 1900: \(E_n=n hν\) quantization</li>
+<li>Wien: Hotter → λmax blue shift, Stefan: Total power ∝T⁴</li>
+<li>Sun 5800K → λmax~500nm, Human 310K → 9.3μm IR</li>
+</ul></div>
+<div class="formula">Wien: λmaxT=2.898e-3 mK | Stefan: j*=σT⁴ | Planck: Bλ=2hc²/λ⁵ * 1/(e^hc/λkT-1)</div>
+<div class="deriv"><b>Derivation:</b> Mode density g(ν)=8πν²/c³. Classical <E>=kT. Quantum <E>=hν/(e^hν/kT-1) from Boltzmann P∝e^-nhν/kT. Multiply g*⟨E⟩ → Planck law. Low ν→RJ, high ν→exponential cut-off.</div>
+<p><b>Example:</b> Furnace 1500K → λmax=2898/1500=1.93μm IR.</p></div>
 
-<!-- 5.2 -->
-<div class="card o" id="52">
-<h2>5.2 The Photoelectric Effect</h2>
-<div class="grid">
-<div>
-<div class="bullet">
-<b>Bullet Notes:</b>
-<ul>
-<li>Discovered by Hertz 1887, explained by Einstein 1905 (Nobel 1921)</li>
-<li>Experimental facts:
-  <ul><li>No emission if ν < ν₀ (threshold) even at high intensity</li><li>KE_max depends on frequency, NOT intensity</li><li>Instant emission (<10⁻⁹s) - wave theory predicts delay</li><li>Photo-current ∝ intensity</li></ul>
-</li>
-<li>Einstein: Light consists of photons, each \(E=hν\)</li>
-<li>Work function Φ = minimum energy to escape metal</li>
-<li>For Bhutan: Solar panels work on same principle - photon knocks electron</li>
-</ul>
-</div>
-<div class="formula">\(K_{max}=hν-Φ\)<br>\(h=4.136×10^{-15} eV·s\)<br>Stopping potential: \(eV_0=K_{max}\)<br>Threshold: \(ν_0=Φ/h\)</div>
-<div class="deriv"><b>Full Derivation:</b><br>Step 1: Photon absorbed fully by one electron<br>Step 2: Energy balance: Input = Output → \(hν = Φ + K_{max}\)<br>Step 3: If electron deeper, loses more in collisions → K < Kmax, so Kmax at surface<br>Step 4: Apply stopping voltage: Electron stopped when \(eV_0 = ½mv²_{max}=K_{max}\)<br>Step 5: Graph Kmax vs ν is straight line slope = h, intercept = -Φ. Millikan verified 1916 and measured h.
-</div>
-</div>
-<div>
-<div class="diag">
-<b>Diagram 2: Photoelectric Setup</b><br>
-<svg viewBox="0 0 320 140" width="100%"><rect x="100" y="20" width="120" height="80" fill="#cbd5e1" stroke="#000"/><circle cx="20" cy="60" r="8" fill="yellow" stroke="orange"/><line x1="28" y1="60" x2="100" y2="60" stroke="orange" stroke-width="2" stroke-dasharray="4,3"/><circle cx="160" cy="60" r="6" fill="#ff6a00"/><text x="10" y="15" font-size="10">hν</text><text x="110" y="15" font-size="10">Metal Φ</text><text x="170" y="15" font-size="10">e⁻ ejected</text></svg>
-</div>
-<div class="sim"><b>Calculator + Simulation</b><br>
-Φ <input type="range" id="phiR" min="1" max="5" step="0.1" value="2.3"> <span id="phiV">2.3 eV</span><br>
-ν <input type="range" id="nuR" min="3" max="15" step="0.2" value="7"> <span id="nuV">7e14 Hz</span>
-<p id="peOut" class="formula"></p>
-<canvas id="peC" width="380" height="90"></canvas>
-</div>
-</div>
-</div>
-</div>
+<div class="card" id="52"><h2>5.2 Photoelectric Effect</h2>
+<div class="bullet"><ul><li>Hertz 1887, Einstein 1905 photon E=hν</li><li>Facts: No emission if ν<ν0, KE_max ∝ frequency not intensity, instant <1ns, current ∝ intensity</li><li>Work function Φ metal binding</li></ul></div>
+<div class="formula">Kmax = hν - Φ | eV0=Kmax | ν0=Φ/h</div>
+<div class="deriv"><b>Derivation:</b> hν=Φ+Kmax at surface. Deeper electron loses more → K<Kmax. Graph Kmax vs ν slope=h intercept=-Φ. Millikan verified.</div>
+<p><b>Example:</b> Φ=2.3eV, ν=7e14Hz → E=4.136e-15*7e14=2.9eV → Kmax=0.6eV.</p></div>
 
-<!-- 5.3 -->
-<div class="card" id="53">
-<h2>5.3 The Compton Effect</h2>
-<div class="grid">
-<div>
-<div class="bullet">
-<ul>
-<li>Arthur Compton 1923 scattered X-rays from graphite, observed λ increased</li>
-<li>Classical Thomson scattering predicts no λ shift - fails</li>
-<li>Explained if photon has momentum \(p=h/λ\) like particle</li>
-<li>Only possible if photon collides like billiard ball with electron</li>
-<li>Compton wavelength \(\lambda_c=h/m_ec=0.002426 nm\) is fundamental length scale of electron</li>
-<li>Application: Compton telescope, medical imaging correction</li>
-</ul>
+<div class="card" id="53"><h2>5.3 Compton Effect</h2>
+<div class="bullet"><ul><li>Compton 1923 X-ray graphite λ increased</li><li>Classical Thomson predicts no shift</li><li>Photon momentum p=h/λ, collision like billiard</li><li>λc=h/mec=0.002426nm</li></ul></div>
+<div class="formula">Δλ = (h/mec)(1-cosθ) | Max 180°: 0.00486nm</div>
+<div class="deriv"><b>Derivation Steps:</b> 1) Initial: photon E=hc/λ, electron rest mec² 2) Final: E'=hc/λ', pe, Ee=√(pe²c²+me²c⁴) 3) Cons: p=p'cosθ+pex, 0=p'sinθ-pey, E+mec²=E'+Ee 4) Eliminate pe → 1/E'-1/E=(1/mec²)(1-cosθ) → Δλ formula. Proves particle nature.</div></div>
+
+<div class="card" id="54"><h2>5.4 de Broglie Matter Wave</h2>
+<div class="bullet"><ul><li>de Broglie 1924: if wave→particle, particle→wave λ=h/p</li><li>V=100V → λ≈0.123nm diffracts</li><li>Davisson-Germer 1927 Ni crystal proves</li><li>Bohr quantization: 2πr=nλ → pr=nħ</li><li>Electron microscope 0.1nm vs optical 500nm</li></ul></div>
+<div class="formula">λ=h/p = h/√(2meV) → e⁻: λ(nm)=1.227/√V</div>
+<div class="deriv"><b>Derivation:</b> λ=h/p, standing wave in orbit 2πr=nλ=nh/p → L=nħ → Bohr derived + energy -13.6/n²eV.</div></div>
+
+<div class="card" id="55"><h2>5.5 Wave-Particle Duality</h2>
+<div class="bullet"><ul><li>Light: interference wave, photoelectric/Compton particle → dual</li><li>Matter: diffraction wave, Millikan particle</li><li>Bohr Complementarity: apparatus decides</li><li>ψ, |ψ|²=probability</li></ul></div>
+<div class="deriv"><b>Critical Thinking:</b> Radio λ=1m photon E tiny → wave hidden (many photons). γ-ray λ=1e-12m particle dominates. Duality depends on h vs resolution → correspondence principle.</div></div>
+
+<div class="card" id="56"><h2>5.6 Electron Double-Slit</h2>
+<div class="bullet"><ul><li>Young with electrons even one by one → fringe build-up</li><li>Each electron ψ_total=ψ1+ψ2, |ψ1+ψ2|² = |ψ1|²+|ψ2|²+interference</li><li>Detector which slit → interference vanishes</li></ul></div>
+<div class="formula">Maxima: d sinθ=mλ</div></div>
+
+<div class="card" id="57"><h2>5.7 Heisenberg Uncertainty</h2>
+<div class="bullet"><ul><li>1927 ΔxΔp≥ħ/2, ΔEΔt≥ħ/2</li><li>Gamma-ray microscope: Δx~λ, Δp~h/λ → ΔxΔp~h</li><li>Consequences: e⁻ not in nucleus (Δx~1e-14→KE~20MeV), zero-point E_min=ħ²/8mL², tunneling, laser linewidth</li></ul></div>
+<div class="formula">ΔxΔp≥ħ/2, ħ=1.054e-34 Js</div>
+<div class="deriv"><b>Derivation:</b> Fourier wave packet narrow in x → broad in k → broad in p. Formal via Schwarz inequality.</div></div>
+
+<div class="card"><h2>Reflection & Organization</h2>
+<p><b>Organization:</b> Historical crisis → light particle → matter wave → synthesis → principle. Each: bullet → formula → derivation → example.</p>
+<p><b>Critical Thinking:</b> Calculated sunlight wave would need minutes to eject e⁻ but instant observed → photon needed. Calculated e⁻ in nucleus impossible via uncertainty.</p>
+<p><b>Reflection:</b> Compton derivation hardest, watched MIT 8.04, practiced. Changed view: reality is probability waves. Connects to Bhutanese middle path. Future: add lab PDFs, Dzongkha glossary.</p>
+<p><b>Language/Digital:</b> Clear English, single file HTML5, CSS, MathJax, GitHub Pages, mobile responsive.</p>
 </div>
-<div class="formula">\(\Delta\lambda = \frac{h}{m_ec}(1-\cosθ)\)<br>Max shift at 180°: \(2\lambda_c=0.00486 nm\)<br>Energy of scattered photon: \(E' = \frac{E}{1+\frac{E}{m_ec²}(1-\cosθ)}\)</div>
-<div class="deriv"><b>Derivation (Energy+Momentum):</b><br>Step 1: Initial: photon \(E=hc/λ, p=h/λ\), electron at rest \(E_0=m_ec²\)<br>Step 2: Final: photon \(E'=hc/λ', p'=h/λ'\) at angle θ, electron recoils with \(p_e, E_e=√{(p_ec)²+(m_ec²)²}\)<br>Step 3: Conservation: \(p = p'cosθ + p_{ex}\), \(0=p'sinθ - p_{ey}\), \(E+m_ec² = E' + E_e\)<br>Step 4: Square and eliminate \(p_e\) → after algebra \( \frac{1}{E'}-\frac{1}{E}= \frac{1}{m_ec²}(1-\cosθ)\)<br>Step 5: Convert E=hc/λ → get Compton formula. Shows particle nature of light.
-</div>
-</div>
-<div>
-<div class="diag">
-<b>Diagram 3: Compton Collision</b><br>
-<svg viewBox="0 0 300 160" width="100%"><circle cx="150" cy="80" r="10" fill="#0d1b4a"/><line x1="0" y1="80" x2="140" y2="80" stroke="black" stroke-width="3" marker-end="url(#arr)"/><line x1="160" y1="80" x2="260" y2="30" stroke="orange" stroke-width="3" stroke-dasharray="5,4"/><line x1="160" y1="80" x2="220" y2="130" stroke="#0d1b4a" stroke-width="2"/><text x="5" y="20">Incident λ</text><text x="200" y="20">Scattered λ'</text><text x="190" y="140">Recoil e⁻</text></
+<footer style="background:#0d1b4a;color:white;text-align:center;padding:20px">© 2026 Karma Yangdon | Sherubtse College</footer>
+</body></html>
