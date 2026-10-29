@@ -1,8 +1,344 @@
-<html>
-<head><title>My Site</title></head>
-<body style="text-align:center; font-family:Arial; padding-top:50px">
-<h1>Hello, I'm Karma!</h1>
-<p>My first website on GitHub Pages.</p>
-<p>From Sherubtse College</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit V: Photons & Matter Waves | Karma Yangdon ePortfolio</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--navy:#0d1b4a;--orange:#ff7a00;--light:#f4f8ff;--card:#ffffff;}
+*{box-sizing:border-box} body{margin:0;font-family: 'Segoe UI',Arial,sans-serif;background:var(--light);color:#1a1a1a;line-height:1.7}
+header{background:linear-gradient(135deg,var(--navy),#1e3a8a);color:white;padding:50px 20px;text-align:center}
+header h1{margin:0;font-size:2.2rem} header p{opacity:.9}
+nav{position:sticky;top:0;z-index:99;background:white;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:12px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+nav a{color:var(--navy);font-weight:700;text-decoration:none;padding:6px 12px;border-radius:20px;background:#eef2ff}
+nav a:hover{background:var(--navy);color:white}
+.container{max-width:1000px;margin:auto;padding:20px}
+.card{background:var(--card);border-radius:16px;padding:25px;margin:25px 0;box-shadow:0 6px 18px rgba(0,0,0,.06);border-left:6px solid var(--navy)}
+.card.orange{border-left-color:var(--orange)}
+h2{color:var(--navy);margin-top:0} h3{color:#1e3a8a}
+.formula{background:#0d1b4a;color:#a5f3fc;padding:14px 18px;border-radius:10px;font-family:monospace;margin:12px 0;overflow-x:auto}
+.derivation{background:#fff7ed;border:1px dashed #ff7a00;padding:15px;border-radius:10px;margin:12px 0}
+.diagram{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:15px;text-align:center;margin:15px 0}
+.sim-box{background:linear-gradient(180deg,#ffffff,#eef2ff);border:2px solid #c7d2fe;border-radius:14px;padding:18px;margin:15px 0}
+.sim-box label{font-weight:600} input[type=range]{width:100%}
+canvas{border-radius:10px;background:black;display:block;margin:10px auto;max-width:100%}
+.quiz-q{background:#f1f5f9;padding:12px;border-radius:10px;margin:10px 0}
+.btn{background:var(--navy);color:white;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn:hover{background:var(--orange)}
+.tag{display:inline-block;background:#e0e7ff;padding:4px 10px;border-radius:20px;font-size:12px;margin:2px}
+footer{background:var(--navy);color:white;text-align:center;padding:30px 20px;margin-top:40px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px} @media(max-width:700px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Unit V: Photons and Matter Waves</h1>
+<p>Physics ePortfolio | Karma Yangdon | Sherubtse College | BSc Physical Science</p>
+<p>Design • Organization • Content • Critical Thinking • Reflection • Digital Skills</p>
+</header>
+
+<nav>
+<a href="#5.1">5.1 Blackbody</a>
+<a href="#5.2">5.2 Photoelectric</a>
+<a href="#5.3">5.3 Compton</a>
+<a href="#5.4">5.4 de Broglie</a>
+<a href="#5.5">5.5 Duality</a>
+<a href="#5.6">5.6 Double Slit</a>
+<a href="#5.7">5.7 Uncertainty</a>
+<a href="#quiz">Quiz</a>
+<a href="#reflection">Reflection</a>
+</nav>
+
+<div class="container">
+
+<!-- 5.1 -->
+<div class="card" id="5.1">
+<h2>5.1 Blackbody Radiation</h2>
+<div class="grid2">
+<div>
+<h3>Notes (Classwork + Homework)</h3>
+<p>Classical physics predicted Rayleigh-Jeans law \( u(\lambda) \propto T/\lambda^4\) which diverges at short λ - <b>Ultraviolet catastrophe</b>.</p>
+<p>Planck (1900) proposed energy is quantized: \( E = nh\nu \). This solved blackbody spectrum.</p>
+<div class="formula">Planck's Law: \( B_{\lambda}(T) = \frac{2hc^2}{\lambda^5} \frac{1}{e^{hc/\lambda kT}-1} \)</div>
+<div class="formula">Wien's Law: \( \lambda_{max} T = 2.898 \times 10^{-3} m\cdot K \)<br>Stefan-Boltzmann: \( E = \sigma T^4 \)</div>
+<div class="derivation"><b>Derivation Idea:</b> Planck assumed oscillators in cavity can have only \(E_n=n h\nu\). Average energy \(\langle E\rangle = \frac{h\nu}{e^{h\nu/kT}-1}\) not \(kT\). Insert into mode density \(8\pi\nu^2/c^3\) gives Planck law.</div>
+</div>
+<div>
+<div class="diagram">
+<b>Diagram: Blackbody Curves</b><br>
+<svg viewBox="0 0 300 150" width="100%"><path d="M10,130 Q80,10 150,80 T280,130" fill="none" stroke="#0d1b4a" stroke-width="3"/><text x="10" y="145" font-size="10">λ →</text><text x="120" y="20" font-size="10">T increases → peak left</text></svg>
+<p>Higher T = more intensity, peak shifts to blue (Wien)</p>
+</div>
+<div class="sim-box">
+<h3>Simulation: Planck Curve</h3>
+<label>Temperature T: <span id="tVal">5800</span> K</label>
+<input type="range" id="temp" min="1000" max="10000" value="5800" step="100">
+<canvas id="bbCanvas" width="400" height="220"></canvas>
+<p>Working Formula: \(\lambda_{max}=2898/T\) μm → <span id="wien"></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 5.2 -->
+<div class="card orange" id="5.2">
+<h2>5.2 The Photoelectric Effect</h2>
+<div class="grid2">
+<div>
+<h3>Notes</h3>
+<p>Light ejects electrons only if \(h\nu > \Phi\). Kinetic energy independent of intensity, depends on frequency - proves particle nature of light (Einstein 1905).</p>
+<div class="formula">Einstein: \( K_{max}=h\nu - \Phi = h\nu - h\nu_0 \)<br>\( eV_0 = K_{max} \)</div>
+<div class="derivation"><b>Derivation:</b> Photon gives energy hν to electron. Work function Φ used to escape. Remainder = KE. At threshold ν₀, K=0 => Φ=hν₀. Stopping potential V₀ stops electrons: ½mv² = eV₀.</div>
+<h3>Exercises</h3>
+<p>HW: Sodium Φ=2.28eV, λ=400nm, find Kmax?<br>Ans: hν=3.1eV => K=0.82eV</p>
+</div>
+<div>
+<div class="diagram">
+<b>Diagram:</b><br>Photon → Metal → e⁻ ejected<br>Φ = barrier, if hν < Φ no emission
+</div>
+<div class="sim-box">
+<h3>Simulation + Calculator</h3>
+<label>Work Function Φ (eV):</label><input type="range" id="phi" min="1" max="5" value="2.28" step="0.1"><span id="phiVal">2.28</span>
+<label>Light Frequency (10¹⁴ Hz):</label><input type="range" id="freq" min="3" max="15" value="7.5" step="0.1"><span id="freqVal">7.5</span>
+<div class="formula" id="peResult"></div>
+<canvas id="peCanvas" width="400" height="120"></canvas>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 5.3 -->
+<div class="card" id="5.3">
+<h2>5.3 The Compton Effect</h2>
+<div class="grid2">
+<div>
+<h3>Notes</h3>
+<p>X-ray photon collides with electron, wavelength increases. Proves photon has momentum \(p=h/\lambda\).</p>
+<div class="formula">\( \Delta\lambda = \lambda' - \lambda = \frac{h}{m_e c}(1-\cos\theta) = \lambda_c(1-\cos\theta)\)<br>Compton wavelength \(\lambda_c = 2.426 \times 10^{-12} m\)</div>
+<div class="derivation"><b>Derivation:</b> Use conservation of energy and momentum: photon \(E=pc\), electron relativistic \(E^2=(pc)^2+(m_ec^2)^2\). Solving for λ' gives shift. Derivation steps show elastic collision of particle-like photon.</div>
+</div>
+<div>
+<div class="sim-box">
+<h3>Simulation: Compton Shift</h3>
+<label>Scattering Angle θ: <span id="thetaVal">90</span>°</label>
+<input type="range" id="theta" min="0" max="180" value="90">
+<div class="formula" id="comptonRes"></div>
+<svg viewBox="0 0 200 100" width="100%"><circle cx="100" cy="50" r="8" fill="#ff7a00"/><line id="inPhoton" x1="0" y1="50" x2="92" y2="50" stroke="#0d1b4a" stroke-width="3"/><line id="outPhoton" x1="108" y1="50" x2="200" y2="20" stroke="#0d1b4a" stroke-width="3" stroke-dasharray="5,5"/><text x="5" y="20">λ</text><text x="160" y="20">λ'</text></svg>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 5.4 -->
+<div class="card orange" id="5.4">
+<h2>5.4 De Broglie's Matter Wave</h2>
+<h3>Notes</h3>
+<p>If light (wave) can be particle, particles can be waves. de Broglie 1924: Every moving particle has wavelength.</p>
+<div class="formula">\( \lambda = \frac{h}{p} = \frac{h}{mv} = \frac{h}{\sqrt{2mK}} \) for non-relativistic<br>For electron accelerated by V: \( \lambda = \frac{1.227}{\sqrt{V}} nm \)</div>
+<div class="derivation"><b>Derivation:</b> Start from \(E=mc^2\) and \(E=h\nu\), momentum of photon \(p=E/c=h/\lambda\). Postulate same for matter: λ=h/p. For electron in Bohr orbit, standing wave condition \(2πr=nλ\) gives Bohr quantization \(L=nħ\).</div>
+<div class="sim-box grid2">
+<div>
+<h3>Calculator</h3>
+<label>Particle mass (kg x10⁻³⁰):</label><input type="number" id="mass" value="0.911" style="width:100%"><br>
+<label>Velocity (10⁶ m/s):</label><input type="range" id="vel" min="0.1" max="10" value="2" step="0.1"><span id="velVal">2</span>
+<div class="formula" id="deBroglieRes"></div>
+</div>
+<div class="diagram">λ decreases as momentum increases<br>Electron faster → shorter wave</div>
+</div>
+</div>
+
+<!-- 5.5 -->
+<div class="card" id="5.5">
+<h2>5.5 Wave-Particle Duality</h2>
+<p><b>Concept:</b> Light and matter exhibit both wave (interference, diffraction) and particle (photoelectric, Compton) properties. Complementarity principle (Bohr): We see one aspect at a time depending on experiment.</p>
+<div class="formula">Wave → \( \lambda, \nu, interference \)<br>Particle → \( E=h\nu, p=h/\lambda, collision \)</div>
+<div class="derivation"><b>Critical Thinking:</b> Not object is both, but quantum object needs new description - wavefunction ψ gives probability. Intensity of light (wave) ∝ probability of finding photon (particle). I analyzed: blackbody + photoelectric + Compton need particle, but double-slit needs wave - duality resolves crisis.</div>
+</div>
+
+<!-- 5.6 -->
+<div class="card orange" id="5.6">
+<h2>5.6 Electron Double-Slit Experiment</h2>
+<div class="grid2">
+<div>
+<h3>Notes</h3>
+<p>Even single electrons fired one by one build interference pattern - each electron interferes with itself. Probability wave.</p>
+<div class="formula">Position of maxima: \( d \sin\theta = m\lambda \)<br>Intensity: \( I = 4I_0 \cos^2(\frac{\pi d \sin\theta}{\lambda}) \cdot sinc^2 \)</div>
+<p><b>Learning:</b> If we watch which slit, interference disappears - measurement collapses wavefunction.</p>
+</div>
+<div>
+<div class="sim-box">
+<h3>Simulation: Build-up Pattern</h3>
+<button class="btn" onclick="startDoubleSlit()">Fire Electrons One by One</button> <button class="btn" onclick="clearSlit()">Reset</button>
+<canvas id="dsCanvas" width="400" height="200"></canvas>
+<p id="dsCount">Electrons: 0</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 5.7 -->
+<div class="card" id="5.7">
+<h2>5.7 Heisenberg Uncertainty Principle</h2>
+<div class="grid2">
+<div>
+<h3>Notes + Simple Consequences</h3>
+<p>Cannot know position and momentum simultaneously precisely. Arises from wave nature.</p>
+<div class="formula">\( \Delta x \Delta p_x \ge \frac{\hbar}{2} \approx \frac{h}{4\pi} \)<br>\( \Delta E \Delta t \ge \frac{\hbar}{2} \)</div>
+<div class="derivation"><b>Derivation Idea:</b> Wave packet width Δx ~ 1/Δk. Since p=ħk, ΔxΔp ~ ħ. More rigorous from Fourier transform of ψ and standard deviation.<br><b>Consequences:</b> 1) Electron cannot be in nucleus (Δx~10⁻¹⁴m → huge Δp → huge KE). 2) Zero-point energy - even at 0K, harmonic oscillator has E₀=½ħω. 3) Tunneling allowed due to ΔE.</div>
+</div>
+<div>
+<div class="sim-box">
+<h3>Calculator: Uncertainty</h3>
+<label>Δx (nm):</label><input type="range" id="dx" min="0.01" max="2" value="0.1" step="0.01"><span id="dxVal">0.1</span>
+<div class="formula" id="uncRes"></div>
+<p>This is why electron microscope needs high momentum for better resolution.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- QUIZ -->
+<div class="card" id="quiz" style="border-left-color:#10b981">
+<h2>Interactive Quiz - Digital Skills (Auto-Graded)</h2>
+<div id="quizBox"></div>
+<button class="btn" onclick="checkQuiz()">Submit Quiz</button>
+<div id="quizScore" class="formula" style="display:none"></div>
+</div>
+
+<!-- REFLECTION -->
+<div class="card" id="reflection">
+<h2>Reflection, Critical Thinking & Learning Journey</h2>
+<p><b>Personal Insight:</b> Before Unit V, I thought light is wave. Photoelectric effect challenged me - intensity does not matter, frequency does. I realized classical wave theory fails at atomic scale.</p>
+<p><b>Challenge:</b> Derivation of Compton shift using relativistic momentum was difficult. I solved it by watching Walter Lewin MIT lectures and practicing 3 times.</p>
+<p><b>Critical Thinking:</b> De Broglie connects Bohr model to standing waves - this made me understand why angular momentum is quantized, not just assumed. Electron double-slit shows reality is probabilistic, not deterministic.</p>
+<p><b>21st Century Skills Used:</b> I used PhET simulations, Python to plot Planck curve, and GitHub Pages to build this ePortfolio - improving digital literacy and communication.</p>
+<p><b>Lesson Learned:</b> Wave-particle duality is not confusion, but deeper unity. Heisenberg taught me limits of knowledge are fundamental, not technical.</p>
+<p><b>Future:</b> I will add lab videos and link my classwork PDFs in next update.</p>
+<span class="tag">Critical Thinking</span><span class="tag">Reflection</span><span class="tag">Digital Tools</span><span class="tag">Bhutan</span>
+</div>
+
+</div>
+
+<footer>
+© 2026 Karma Yangdon | Unit V ePortfolio | Sherubtse College | Built with HTML/CSS/JS Canvas + MathJax | Hosted on GitHub Pages
+</footer>
+
+<script>
+// Blackbody Simulation
+const bbC=document.getElementById('bbCanvas'), bbCtx=bbC.getContext('2d');
+function drawBB(){
+ let T=+document.getElementById('temp').value;
+ document.getElementById('tVal').textContent=T;
+ document.getElementById('wien').textContent=(2898000/T).toFixed(0)+' nm';
+ bbCtx.clearRect(0,0,400,220);
+ bbCtx.strokeStyle='#333'; bbCtx.strokeRect(30,10,350,180);
+ bbCtx.beginPath(); bbCtx.strokeStyle='#ff7a00'; bbCtx.lineWidth=2;
+ for(let x=0;x<350;x++){
+   let lam=(200+x*10)*1e-9; // 200nm to 3700nm
+   let h=6.626e-34,c=3e8,k=1.38e-23;
+   let B= (2*h*c*c/Math.pow(lam,5)) / (Math.exp(h*c/(lam*k*T))-1);
+   let y=190 - B/1e13*80; // scaled
+   if(x==0) bbCtx.moveTo(30+x, y); else bbCtx.lineTo(30+x,y);
+ }
+ bbCtx.stroke();
+ bbCtx.fillStyle='white'; bbCtx.fillText('λ (nm) →',160,210);
+}
+document.getElementById('temp').addEventListener('input',drawBB); drawBB();
+
+// Photoelectric
+function updatePE(){
+ let phi=+document.getElementById('phi').value, freq=+document.getElementById('freq').value;
+ document.getElementById('phiVal').textContent=phi;
+ document.getElementById('freqVal').textContent=freq;
+ let h=4.135667696e-15; // eV.s
+ let E=h*freq*1e14, K=E-phi;
+ let res=document.getElementById('peResult');
+ if(K<=0) res.innerHTML=`E=${E.toFixed(2)}eV < Φ → No emission (ν<ν₀)`;
+ else res.innerHTML=`E=hν=${E.toFixed(2)}eV<br>Kmax=${K.toFixed(2)}eV = ${ (K*1.602e-19).toExponential(2)}J<br>V₀=${K.toFixed(2)}V`;
+ // canvas
+ let c=document.getElementById('peCanvas'), ctx=c.getContext('2d'); ctx.clearRect(0,0,400,120);
+ ctx.fillStyle=phi>0?'#0d1b4a':'gray'; ctx.fillRect(200,20,150,80);
+ ctx.fillStyle='yellow'; for(let i=0;i<freq;i+=2){ctx.beginPath();ctx.arc(10+i*5,60,3,0,6.28);ctx.fill();}
+ if(K>0){ctx.fillStyle='#ff7a00';ctx.beginPath();ctx.arc(260,60,6,0,6.28);ctx.fill();ctx.fillStyle='white';ctx.fillText('e- KE',230,20);}
+}
+document.getElementById('phi').addEventListener('input',updatePE);
+document.getElementById('freq').addEventListener('input',updatePE); updatePE();
+
+// Compton
+function updateCompton(){
+ let th=+document.getElementById('theta').value;
+ document.getElementById('thetaVal').textContent=th;
+ let lc=0.002426; // nm
+ let dL=lc*(1-Math.cos(th*Math.PI/180));
+ document.getElementById('comptonRes').innerHTML=`Δλ = λc(1-cosθ) = ${dL.toFixed(5)} nm<br>λc=0.002426 nm`;
+ let line=document.getElementById('outPhoton');
+ let rad=th*Math.PI/180;
+ line.setAttribute('x2',100+90*Math.cos(rad)); line.setAttribute('y2',50-90*Math.sin(rad));
+}
+document.getElementById('theta').addEventListener('input',updateCompton); updateCompton();
+
+// de Broglie
+function updateDB(){
+ let m=+document.getElementById('mass').value*1e-30, v=+document.getElementById('vel').value*1e6;
+ document.getElementById('velVal').textContent=v/1e6;
+ let p=m*v, h=6.626e-34, lam=h/p;
+ document.getElementById('deBroglieRes').innerHTML=`p=mv=${p.toExponential(2)} kg·m/s<br>λ=h/p=${(lam*1e9).toFixed(4)} nm = ${lam.toExponential(3)} m`;
+}
+document.getElementById('vel').addEventListener('input',updateDB);
+document.getElementById('mass').addEventListener('input',updateDB); updateDB();
+
+// Uncertainty
+function updateUnc(){
+ let dx=+document.getElementById('dx').value;
+ document.getElementById('dxVal').textContent=dx;
+ let hbar=1.0545718e-34, dpx=hbar/(2*dx*1e-9);
+ document.getElementById('uncRes').innerHTML=`Δx=${dx}nm<br>Δp ≥ ħ/(2Δx) = ${dpx.toExponential(2)} kg·m/s<br>Δv for electron ≥ ${(dpx/9.11e-31/1e6).toFixed(2)}×10⁶ m/s`;
+}
+document.getElementById('dx').addEventListener('input',updateUnc); updateUnc();
+
+// Double Slit
+let count=0, interval;
+function startDoubleSlit(){
+ let c=document.getElementById('dsCanvas'), ctx=c.getContext('2d');
+ if(interval) return;
+ interval=setInterval(()=>{
+   let x=Math.random()*400;
+   // interference envelope sin²
+   let prob=Math.pow(Math.cos((x-200)/400*20),2)*Math.pow(Math.sin((x-200)/80)/((x-200)/80||1),2);
+   if(Math.random()<prob*1.5){
+     ctx.fillStyle=`rgba(0,255,255,0.8)`; ctx.fillRect(x, 50+Math.random()*80,2,2);
+     count++; document.getElementById('dsCount').textContent='Electrons: '+count;
+   }
+   if(count>800) clearInterval(interval);
+ },10);
+}
+function clearSlit(){clearInterval(interval);interval=null;count=0;let c=document.getElementById('dsCanvas');c.getContext('2d').clearRect(0,0,400,200);document.getElementById('dsCount').textContent='Electrons: 0';}
+
+// Quiz
+const qs=[
+{q:"Who introduced quantization to explain blackbody radiation?",o:["Einstein","Planck","Compton","Heisenberg"],a:1},
+{q:"Photoelectric effect proves:",o:["Wave nature of light","Particle nature of light","Electron is wave","Uncertainty"],a:1},
+{q:"Compton shift is maximum at:",o:["0°","90°","180°","45°"],a:2},
+{q:"de Broglie wavelength λ = ?",o:["h/p","p/h","h·p","E/c"],a:0},
+{q:"Double-slit with single electrons shows:",o:["No pattern","Particle only","Build-up of interference even singly","Electrons disappear"],a:2},
+{q:"Heisenberg ΔxΔp ≥ ?",o:["h","ħ/2","0","c"],a:1}
+];
+let qb=document.getElementById('quizBox');
+qs.forEach((qq,i)=>{
+ let div=document.createElement('div'); div.className='quiz-q';
+ div.innerHTML=`<b>Q${i+1}. ${qq.q}</b><br>`+qq.o.map((opt,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`).join('');
+ qb.appendChild(div);
+});
+function checkQuiz(){
+ let score=0;
+ qs.forEach((qq,i)=>{let sel=document.querySelector(`input[name="q${i}"]:checked`); if(sel&&+sel.value==qq.a) score++;});
+ let el=document.getElementById('quizScore'); el.style.display='block';
+ el.innerHTML=`Score: ${score}/${qs.length} - ${score>=5?'Excellent! You mastered Unit V':'Revise notes and try again!'}`;
+ window.scrollTo(0,document.getElementById('quiz').offsetTop);
+}
+</script>
 </body>
 </html>
